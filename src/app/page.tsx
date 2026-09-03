@@ -1,17 +1,19 @@
 import type { Metadata } from "next";
 
 import { Hero } from "@/components/Hero";
+import { Piliers } from "@/components/Piliers";
 import { Essentiel } from "@/components/Essentiel";
 import { Blocages } from "@/components/Blocages";
 import { Comparatif } from "@/components/Comparatif";
 import { Methode } from "@/components/Methode";
 import { Parcours } from "@/components/Parcours";
-import { Equipe } from "@/components/Equipe";
 import { Preuve } from "@/components/Preuve";
 import { PourQui } from "@/components/PourQui";
 import { FAQ } from "@/components/FAQ";
 import { CTAFinal } from "@/components/CTAFinal";
 import { Footer } from "@/components/Footer";
+import { AideContact } from "@/components/AideContact";
+import { Reveal } from "@/components/ui/Reveal";
 import { buildHomeSchema } from "@/lib/seo/schema";
 
 /**
@@ -47,18 +49,39 @@ export default function HomePage() {
     <>
       <main>
         <Hero />
-        <Essentiel />
-        <Blocages />
-        <Comparatif />
-        <Methode />
-        <Parcours />
-        <Equipe />
-        <Preuve />
-        <PourQui />
-        <FAQ />
-        <CTAFinal />
+        <Reveal>
+          <Piliers />
+        </Reveal>
+        <Reveal>
+          <Essentiel />
+        </Reveal>
+        <Reveal>
+          <Blocages />
+        </Reveal>
+        <Reveal>
+          <Comparatif />
+        </Reveal>
+        <Reveal>
+          <Methode />
+        </Reveal>
+        <Reveal>
+          <Parcours />
+        </Reveal>
+        <Reveal>
+          <Preuve />
+        </Reveal>
+        <Reveal>
+          <PourQui />
+        </Reveal>
+        <Reveal>
+          <FAQ />
+        </Reveal>
+        <Reveal>
+          <CTAFinal />
+        </Reveal>
       </main>
       <Footer />
+      <AideContact />
 
       <script
         type="application/ld+json"

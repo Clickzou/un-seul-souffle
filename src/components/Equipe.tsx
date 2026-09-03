@@ -53,7 +53,7 @@ function Groupe({
         <span aria-hidden="true" className="h-px flex-1 bg-rule" />
       </h3>
 
-      <ul className={`grid gap-px border border-rule-2 bg-rule-2 ${colonnes}`}>
+      <ul className={`grid gap-px overflow-hidden rounded-carte border border-rule-2 bg-rule-2 ${colonnes}`}>
         {membres.map((membre) => (
           <li key={membre.nom} className="flex flex-col gap-3 bg-surface-2 px-6 py-7">
             <Image

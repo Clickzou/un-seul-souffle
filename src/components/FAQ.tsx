@@ -15,26 +15,27 @@ export function FAQ() {
       <SectionHead
         label="Questions fréquentes"
         titre="Les questions que les dirigeants nous posent"
+        centre
       />
 
-      <div className="max-w-[78ch] border-t border-rule">
+      <div className="border-t border-rule">
         {faq.map((item, index) => (
           <details key={item.q} open={index === 0} className="group border-b border-rule-2">
             <summary
-              className="relative cursor-pointer py-5 pr-10 font-serif text-[19px] font-normal
+              className="relative cursor-pointer py-6 pr-12 font-serif text-[20px] font-normal
                          text-ink transition-colors hover:text-teal"
             >
               {item.q}
               <span
                 aria-hidden="true"
-                className="absolute right-1.5 top-[19px] font-mono text-[17px] text-teal"
+                className="absolute right-1.5 top-[23px] font-mono text-[18px] text-teal"
               >
                 <span className="group-open:hidden">+</span>
                 <span className="hidden group-open:inline">–</span>
               </span>
             </summary>
 
-            <div className="max-w-[70ch] space-y-3 pb-6 pr-10 text-[15.5px] leading-relaxed">
+            <div className="space-y-3 pb-7 pr-12 text-[15.5px] leading-relaxed">
               {item.r.map((paragraphe, i) => (
                 <p
                   key={i}

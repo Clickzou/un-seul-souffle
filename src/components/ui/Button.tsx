@@ -29,7 +29,7 @@ export function Button({
     <Link
       href={href}
       className={clsx(
-        "group inline-flex items-center gap-2 border px-5 py-3 text-[14.5px] font-medium transition-colors",
+        "group inline-flex items-center gap-2 rounded-bouton border px-5 py-3 text-[14.5px] font-medium transition-colors",
         styles,
         className,
       )}

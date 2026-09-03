@@ -13,6 +13,9 @@ const config: Config = {
         ground: "#faf8f4",
         surface: "#ffffff",
         "surface-2": "#f1eee7",
+        // Gris très clair à léger biais bleu, accordé à l'encre navy. Plus froid
+        // et plus clair que surface-2, qui tire vers le crème.
+        mist: "#f3f4f6",
         ink: "#101a2c",
         body: "#4b5566",
         muted: "#7c8494",
@@ -39,6 +42,12 @@ const config: Config = {
       maxWidth: {
         shell: "1140px",
         prose: "66ch",
+      },
+      borderRadius: {
+        // Deux rayons pour tout le site : les cartes et les boutons. Nommés plutôt
+        // que pris dans l'échelle Tailwind, pour qu'un ajustement se fasse ici.
+        carte: "10px",
+        bouton: "6px",
       },
       boxShadow: {
         lift: "0 1px 2px rgba(16,26,44,.04), 0 8px 24px -12px rgba(16,26,44,.10)",

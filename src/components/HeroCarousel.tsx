@@ -68,21 +68,22 @@ export function HeroCarousel() {
             priority={index === 0}
             sizes="100vw"
             quality={82}
-            className={`object-cover transition-opacity duration-[1600ms] ease-in-out ${
+            // L'image est assombrie et désaturée à la source plutôt que masquée par
+            // un voile empilé : le rendu garde la matière de la photo au lieu de la
+            // laiter, et le contraste du texte ne dépend plus du visuel affiché.
+            className={`object-cover brightness-[0.42] saturate-[0.75] transition-opacity duration-[1600ms] ease-in-out ${
               index === actif ? "opacity-100" : "opacity-0"
             }`}
           />
         ) : null,
       )}
 
-      {/* Voile de lisibilité. Deux couches : un dégradé qui charge la gauche, où
-          se trouve le texte, et un aplat global qui garantit le contraste même
-          sur le visuel le plus clair du lot. */}
-      <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/45" />
-      <div className="absolute inset-0 bg-ink/35" />
-
-      {/* Raccord avec la section suivante, qui est sur fond crème. */}
-      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-ground" />
+      {/* Second niveau, uniforme et sans dégradé directionnel : il teinte la photo
+          vers le navy de la marque et sécurise le contraste sur le visuel 5, le plus
+          clair du lot. Les opacités sont prises dans l'échelle Tailwind (multiples
+          de 5) — une valeur hors échelle n'est pas compilée et le voile disparaît
+          silencieusement. Pas de fondu vers le fond crème en bas : coupure franche. */}
+      <div className="absolute inset-0 bg-ink/40" />
 
       {anime && (
         <div className="absolute bottom-7 right-6 z-10 flex gap-2 sm:right-10">

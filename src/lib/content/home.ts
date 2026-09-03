@@ -10,16 +10,82 @@
 
 export const SITE_URL = "https://www.unseulsouffle.fr";
 
-/* ─────────── Piliers (hero) ─────────── */
+/* ─────────── Palette ───────────
+ * Les cinq teintes du logo — les cinq rubans qui convergent. Chacune identifie
+ * une expertise et la suit partout où elle réapparaît : c'est une clé de lecture,
+ * pas un ornement.
+ *
+ * `texte` est la version assombrie, seule utilisable en typographie sur fond clair
+ * (les teintes du logo passent sous le seuil de contraste AA). `vif` reprend la
+ * teinte du logo, réservée aux filets, aplats et surfaces.
+ */
 
-export type Pilier = { n: string; nom: string; referent: string };
+export const ACCENTS = {
+  finance: { texte: "#0d6e69", vif: "#2ec4c4" },
+  organisation: { texte: "#a81a6b", vif: "#d21b8c" },
+  commercial: { texte: "#c2571a", vif: "#f5851f" },
+  production: { texte: "#b3341c", vif: "#e8441f" },
+  qvt: { texte: "#a06a12", vif: "#fbb03b" },
+} as const;
+
+export type CleAccent = keyof typeof ACCENTS;
+
+/** Le dégradé des cinq rubans, pour les filets qui évoquent le logo entier. */
+export const DEGRADE_LOGO = Object.values(ACCENTS)
+  .map((a) => a.vif)
+  .join(", ");
+
+/* ─────────── Piliers ───────────
+ * Les cinq expertises, sous le hero. `referents` contient des slugs de `equipe` :
+ * photo et nom sont résolus à l'affichage, ils ne sont donc écrits qu'une fois.
+ */
+
+export type Pilier = {
+  n: string;
+  nom: string;
+  resume: string;
+  /** Clé dans ACCENTS. Le pilier garde sa teinte partout où il réapparaît. */
+  accent: CleAccent;
+  /** Slugs de `equipe`. Le pilier production en compte deux. */
+  referents: string[];
+};
 
 export const piliers: Pilier[] = [
-  { n: "01", nom: "Finance & pilotage", referent: "Marjorie Anglade" },
-  { n: "02", nom: "Organisation & coopération", referent: "Muriel Saffroy" },
-  { n: "03", nom: "Stratégie commerciale", referent: "Nicolas Vimini" },
-  { n: "04", nom: "Production & performance", referent: "Yohan Castelar · Patrick Calvet" },
-  { n: "05", nom: "Équilibre & QVT", referent: "Olivia Artur" },
+  {
+    n: "01",
+    nom: "Finance & pilotage",
+    accent: "finance",
+    resume: "Trésorerie, tableaux de bord, prévisionnel : la stratégie traduite en chiffres.",
+    referents: ["marjorie-anglade"],
+  },
+  {
+    n: "02",
+    nom: "Organisation & coopération",
+    accent: "organisation",
+    resume: "Rôles, modes de décision et qualité de coopération entre les équipes.",
+    referents: ["muriel-saffroy"],
+  },
+  {
+    n: "03",
+    nom: "Stratégie commerciale",
+    accent: "commercial",
+    resume: "Positionnement, structuration de l'offre et pilotage de l'activité par les indicateurs.",
+    referents: ["nicolas-vimini"],
+  },
+  {
+    n: "04",
+    nom: "Production & performance",
+    accent: "production",
+    resume: "Flux, processus et interfaces industriels, amélioration continue des sites.",
+    referents: ["yohan-castelar", "patrick-calvet"],
+  },
+  {
+    n: "05",
+    nom: "Équilibre & QVT",
+    accent: "qvt",
+    resume: "Charge mentale, énergie et sens au travail, pour le dirigeant comme pour ses équipes.",
+    referents: ["olivia-artur"],
+  },
 ];
 
 /* ─────────── Repères factuels (bloc L'essentiel) ─────────── */
@@ -38,6 +104,12 @@ export type Blocage = {
   n: string;
   titre: string;
   texte: string;
+  /**
+   * Le pilier qui traite ce blocage. Les cinq blocages et les cinq expertises se
+   * répondent un à un : le lecteur voit, à la couleur, qui prend le sujet en
+   * charge. C'est l'argument du cabinet rendu visible.
+   */
+  accent: CleAccent;
   lien?: { href: string; label: string };
 };
 
@@ -45,6 +117,7 @@ export const blocages: Blocage[] = [
   {
     n: "01",
     titre: "Manque de visibilité financière",
+    accent: "finance",
     texte:
       "Trésorerie pilotée à vue, tableaux de bord absents ou peu fiables, décisions d'investissement prises sans marge de sécurité. Vous savez que l'entreprise gagne de l'argent, sans savoir précisément où ni pourquoi.",
     lien: {
@@ -55,24 +128,28 @@ export const blocages: Blocage[] = [
   {
     n: "02",
     titre: "Stratégie incertaine",
+    accent: "commercial",
     texte:
       "Vision floue à trois ans, stratégie commerciale fragile, positionnement peu différenciant, risques non anticipés. L'entreprise avance à l'énergie du dirigeant plutôt qu'à celle d'un cap partagé.",
   },
   {
     n: "03",
     titre: "Tensions organisationnelles",
+    accent: "organisation",
     texte:
       "Rôles mal définis, décisions qui remontent toutes au même endroit, conflits internes qui paralysent des projets entiers. L'organisation consomme plus d'énergie qu'elle n'en produit.",
   },
   {
     n: "04",
     titre: "Surcharge et perte d'équilibre",
+    accent: "qvt",
     texte:
       "Stress, fatigue, charge mentale permanente. Votre clarté de décision baisse, et l'engagement des équipes suit la même courbe. C'est le blocage dont on parle le moins et qui coûte le plus cher.",
   },
   {
     n: "05",
     titre: "Production sous tension",
+    accent: "production",
     texte:
       "Flux mal pilotés, terrain perfectible, pertes de productivité, absence d'indicateurs pour structurer et sécuriser la performance industrielle au quotidien.",
   },
@@ -98,6 +175,12 @@ export const comparatif: { critere: string; classique: string; uss: string }[] =
 
 export type Etape = {
   n: string;
+  /**
+   * Le parcours auquel l'étape appartient. Reprend le code couleur teal / ambre
+   * de la section Nos offres : le lecteur voit, dès la méthode, laquelle des deux
+   * offres couvre l'étape qu'il est en train de lire.
+   */
+  parcours: "dirigeant" | "entreprise";
   verbe: string;
   promesse: string;
   symptome: string;
@@ -109,6 +192,7 @@ export type Etape = {
 export const etapes: Etape[] = [
   {
     n: "01",
+    parcours: "dirigeant",
     verbe: "Aligner",
     promesse: "retrouver de la clarté",
     symptome: "Saturation mentale, décisions prises dans l'urgence, sentiment de tout porter seul.",
@@ -120,6 +204,7 @@ export const etapes: Etape[] = [
   },
   {
     n: "02",
+    parcours: "dirigeant",
     verbe: "Coopérer",
     promesse: "renforcer l'intelligence collective",
     symptome:
@@ -130,6 +215,7 @@ export const etapes: Etape[] = [
   },
   {
     n: "03",
+    parcours: "entreprise",
     verbe: "Cartographier",
     promesse: "comprendre le système",
     symptome:
@@ -141,6 +227,7 @@ export const etapes: Etape[] = [
   },
   {
     n: "04",
+    parcours: "entreprise",
     verbe: "Structurer",
     promesse: "accélérer la performance globale",
     symptome:
@@ -151,6 +238,7 @@ export const etapes: Etape[] = [
   },
   {
     n: "05",
+    parcours: "entreprise",
     verbe: "Renforcer",
     promesse: "pérenniser la performance",
     symptome:
@@ -229,6 +317,8 @@ export const parcours: Parcours[] = [
 /* ─────────── Équipe (E-E-A-T) ─────────── */
 
 export type Membre = {
+  /** Clé de jointure avec `piliers.referents`. */
+  slug: string;
   initiales: string;
   nom: string;
   statut: "Associée fondatrice" | "Partenaire";
@@ -243,6 +333,7 @@ export type Membre = {
 
 export const equipe: Membre[] = [
   {
+    slug: "marjorie-anglade",
     initiales: "MA",
     nom: "Marjorie Anglade",
     statut: "Associée fondatrice",
@@ -253,6 +344,7 @@ export const equipe: Membre[] = [
     // linkedin: "[À FOURNIR]",
   },
   {
+    slug: "muriel-saffroy",
     initiales: "MS",
     nom: "Muriel Saffroy",
     statut: "Associée fondatrice",
@@ -263,6 +355,7 @@ export const equipe: Membre[] = [
     photo: "/equipe/muriel-saffroy.webp",
   },
   {
+    slug: "olivia-artur",
     initiales: "OA",
     nom: "Olivia Artur",
     statut: "Partenaire",
@@ -272,6 +365,7 @@ export const equipe: Membre[] = [
     photo: "/equipe/olivia-artur.webp",
   },
   {
+    slug: "nicolas-vimini",
     initiales: "NV",
     nom: "Nicolas Vimini",
     statut: "Partenaire",
@@ -281,6 +375,7 @@ export const equipe: Membre[] = [
     photo: "/equipe/nicolas-vimini.webp",
   },
   {
+    slug: "yohan-castelar",
     initiales: "YC",
     nom: "Yohan Castelar",
     statut: "Partenaire",
@@ -290,6 +385,7 @@ export const equipe: Membre[] = [
     photo: "/equipe/yohan-castelar.webp",
   },
   {
+    slug: "patrick-calvet",
     initiales: "PC",
     nom: "Patrick Calvet",
     statut: "Partenaire",
@@ -300,12 +396,33 @@ export const equipe: Membre[] = [
   },
 ];
 
-/* ─────────── Moments d'intervention ─────────── */
+/* ─────────── Moments d'intervention ───────────
+ * Les trois situations qui déclenchent un appel. Chacune porte une teinte du
+ * logo — le lecteur reconnaît la sienne avant d'avoir lu le détail.
+ */
 
-export const moments = [
-  { titre: "Structurer une croissance", detail: "qui va plus vite que l'organisation" },
-  { titre: "Traverser une transformation", detail: "qui touche plusieurs dimensions à la fois" },
-  { titre: "Préparer une transmission", detail: "et rendre l'entreprise autonome avant de partir" },
+export const moments: { n: string; titre: string; detail: string; accent: CleAccent }[] = [
+  {
+    n: "01",
+    titre: "Structurer une croissance",
+    detail:
+      "L'activité va plus vite que l'organisation : les processus tiennent par les personnes, plus par le système.",
+    accent: "finance",
+  },
+  {
+    n: "02",
+    titre: "Traverser une transformation",
+    detail:
+      "Le changement touche plusieurs dimensions à la fois — stratégie, organisation, finance, humain — et aucune ne peut avancer seule.",
+    accent: "organisation",
+  },
+  {
+    n: "03",
+    titre: "Préparer une transmission",
+    detail:
+      "L'entreprise doit devenir autonome avant votre départ, et cesser de reposer sur vous seul.",
+    accent: "qvt",
+  },
 ];
 
 /* ─────────── FAQ ───────────

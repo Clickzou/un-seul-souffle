@@ -37,11 +37,12 @@ const TONS = {
 
 export function Parcours() {
   return (
-    <Section>
+    <Section ton="surface">
       <SectionHead
         label="Nos offres"
         titre="Deux parcours, selon l'endroit où ça bloque"
         lede="La plupart des dirigeants savent que quelque chose coince, sans savoir si le nœud est chez eux ou dans l'organisation. C'est la seule question à trancher avant de commencer — et les deux parcours en découlent."
+        centre
       />
 
       <div className="grid gap-5 lg:grid-cols-2">
@@ -50,7 +51,7 @@ export function Parcours() {
         ))}
       </div>
 
-      <p className="mt-8 max-w-[72ch] border-l-2 border-rule pl-4 text-[15px]">
+      <p className="mx-auto mt-10 max-w-[72ch] text-center text-[15px]">
         Vous hésitez entre les deux ? C&apos;est le cas le plus fréquent, et c&apos;est
         exactement ce que le diagnostic tranche.{" "}
         <Link href="/diagnostic/" className="font-medium text-teal underline underline-offset-[3px]">
@@ -59,7 +60,7 @@ export function Parcours() {
         — ou en parler directement lors de l&apos;entretien découverte, gratuit et confidentiel.
       </p>
 
-      <p className="mt-6 max-w-[72ch] text-[15px]">
+      <p className="mx-auto mt-4 max-w-[72ch] text-center text-[15px] text-muted">
         Lorsque le blocage est d&apos;abord financier, l&apos;entrée se fait par le{" "}
         <Link
           href="/expert-comptable-daf-externalisee-pme/"
@@ -78,7 +79,7 @@ function Carte({ item }: { item: TypeParcours }) {
 
   return (
     <article
-      className={`flex flex-col border border-rule border-t-2 bg-surface shadow-lift ${ton.bord}`}
+      className={`flex flex-col overflow-hidden rounded-carte border border-rule border-t-2 bg-surface shadow-lift ${ton.bord}`}
     >
       <div className="flex flex-col gap-4 px-7 pb-6 pt-7">
         <div>
@@ -127,7 +128,7 @@ function Carte({ item }: { item: TypeParcours }) {
       <div className="px-7 pb-7 pt-6">
         <Link
           href={item.href}
-          className={`group inline-flex w-full items-center justify-center gap-2.5 px-6 py-3.5 text-[14.5px] font-medium transition-colors ${ton.bouton}`}
+          className={`group inline-flex w-full items-center justify-center gap-2.5 rounded-bouton px-6 py-3.5 text-[14.5px] font-medium transition-colors ${ton.bouton}`}
         >
           {item.ancre}
           <span className="transition-transform group-hover:translate-x-[3px]">→</span>

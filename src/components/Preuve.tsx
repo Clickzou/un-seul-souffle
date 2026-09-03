@@ -45,14 +45,14 @@ const EMPLACEMENTS: Emplacement[] = [
 
 export function Preuve() {
   return (
-    <Section>
-      <SectionHead label="Résultats" titre="Ce que ça change, concrètement" />
+    <Section ton="mist">
+      <SectionHead label="Résultats" titre="Ce que ça change, concrètement" centre />
 
       <ul className="grid gap-4 sm:grid-cols-2">
         {EMPLACEMENTS.map((item) => (
           <li
             key={item.tag}
-            className="flex flex-col gap-2.5 border border-dashed border-amber bg-amber-wash px-6 py-6"
+            className="flex flex-col gap-2.5 rounded-carte border border-dashed border-amber bg-amber-wash px-6 py-6"
           >
             <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-amber">
               {item.tag}
@@ -75,7 +75,7 @@ export function Preuve() {
 
 function NoteIntegration() {
   return (
-    <aside className="mt-7 border border-rule border-l-2 border-l-amber bg-ground px-7 py-6">
+    <aside className="mt-7 rounded-carte border border-rule border-l-2 border-l-amber bg-ground px-7 py-6">
       <h3 className="mb-3.5 font-mono text-[10.5px] font-normal uppercase tracking-[0.13em] text-amber">
         Note d&apos;intégration — à ne pas publier en l&apos;état
       </h3>

@@ -61,7 +61,7 @@
 > Ce bloc n'existe pas sur le site actuel. C'est l'ajout au meilleur rapport effort/impact de toute la page : une réponse factuelle et autonome, extractible telle quelle par ChatGPT, Perplexity, Claude ou un AI Overview Google. Règle GEO § 8 du master.
 
 **H2**
-> ## L'essentiel en trois phrases
+> ## Un cabinet de conseil qui ne s'arrête pas au diagnostic
 
 > Un Seul Souffle est un cabinet de conseil basé à Toulouse qui accompagne les dirigeants de PME et d'ETI de 10 à 250 salariés, dans l'industrie, l'agroalimentaire, les services et la distribution.
 >
@@ -129,7 +129,7 @@
 ## 5. LA MÉTHODE — H2 (ancre `#methode`)
 
 **H2**
-> ## La méthode en cinq étapes
+> ## Notre méthode en cinq étapes
 
 > ⚠️ **Correction structurante** : la 5ᵉ étape porte aujourd'hui trois noms selon l'endroit du site — « Renforcer », « Transmettre », « Transformer », parfois sur la même page. L'étape 4 est écrite « Sructurer » dans le hero. **Nommage retenu : Aligner · Coopérer · Cartographier · Structurer · Renforcer**, à appliquer partout, y compris FAQ, menu, pages d'offres et supports commerciaux.
 

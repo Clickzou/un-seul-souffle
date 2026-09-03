@@ -38,6 +38,24 @@
   }
 }
 
+/* Entrée du hero, au chargement — pas au défilement : le bloc est déjà à l'écran.
+   `both` retient l'état initial avant le démarrage ; la règle prefers-reduced-motion
+   plus bas ramène la durée à zéro, l'élément apparaît alors directement en place. */
+@keyframes montee {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.anim-montee {
+  animation: montee 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -26,22 +26,22 @@ export function Hero() {
 
         <Shell>
           <header className="max-w-[46rem] pb-24 pt-32 sm:pb-32 sm:pt-40 lg:pb-40 lg:pt-44">
-            <Label className="!text-[#7fd3ca]">
-              Toulouse &amp; Occitanie — PME · ETI de 10 à 250 salariés
-            </Label>
+            {/* Toulouse quitte le kicker : il est désormais dans le H1, l'y laisser
+                ferait doublon à deux lignes d'écart. */}
+            <Label className="!text-[#7fd3ca]">PME · ETI de 10 à 250 salariés</Label>
 
-            {/* « accompagner » porte la racine du mot-clé principal (accompagnement
-                dirigeant PME ETI) ; « équipe de direction externalisée » porte la
-                signature de marque, qui est aussi l'actif GEO. Toulouse reste au
-                kicker juste au-dessus, au title et aux données structurées : dans le
-                H1, il alourdirait sans rien ajouter au signal local. */}
-            <h1 className="mt-6 max-w-[19ch] text-[clamp(38px,5.6vw,64px)] leading-[1.06] !text-[#f6f4ee]">
-              Une équipe de direction <em className="italic text-[#7fd3ca]">externalisée</em> pour
-              accompagner les dirigeants de PME et ETI
+            {/* Le H1 porte le mot-clé principal en toutes lettres — accompagnement,
+                dirigeants, PME, ETI, Toulouse. La signature de marque (« équipe de
+                direction externalisée »), qui est l'actif GEO, passe juste en
+                dessous : elle reste au-dessus de la ligne de flottaison et garde son
+                poids sémantique sans disputer au H1 son rôle de signal. */}
+            <h1 className="mt-6 max-w-[16ch] text-[clamp(38px,5.6vw,64px)] leading-[1.06] !text-[#f6f4ee]">
+              Accompagnement de dirigeants de PME et ETI à{" "}
+              <em className="italic text-[#7fd3ca]">Toulouse</em>
             </h1>
 
             <p className="mt-5 font-serif text-[clamp(21px,2.6vw,27px)] font-light italic text-[#c9cfd8]">
-              Structurer aujourd&apos;hui, renforcer demain.
+              Une équipe de direction externalisée — structurer aujourd&apos;hui, renforcer demain.
             </p>
 
             <p className="mt-6 max-w-[58ch] text-lg leading-relaxed text-[#d3d8e0]">

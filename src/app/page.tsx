@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     url: "/",
     siteName: "Un Seul Souffle",
-    title: "Une équipe de direction externalisée pour accompagner les dirigeants de PME et ETI",
+    title: "Accompagnement de dirigeants de PME et ETI à Toulouse",
     description:
       "Cinq expertises de direction mobilisées ensemble autour de votre entreprise. Pas un rapport : un accompagnement jusqu'à la mise en œuvre.",
     images: [{ url: "/og-equipe.webp", width: 1200, height: 630, alt: "L'équipe Un Seul Souffle" }],

@@ -29,7 +29,7 @@
 > Toulouse & Occitanie — PME · ETI de 10 à 250 salariés
 
 **H1**
-> # Une équipe de direction externalisée pour accompagner les dirigeants de PME et ETI
+> # Accompagnement de dirigeants de PME et ETI à Toulouse
 
 **Sous-titre (baseline conservée)**
 > *Structurer aujourd'hui, renforcer demain.*

@@ -1,0 +1,720 @@
+<title>Home Un Seul Souffle</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#fbfaf7;
+  --surface:#ffffff;
+  --surface-2:#f2f0ea;
+  --ink:#131c2e;
+  --ink-2:#4a5468;
+  --ink-3:#78808f;
+  --rule:#e0ddd5;
+  --rule-2:#ebe8e1;
+  --teal:#136f6a;
+  --teal-soft:#e4f0ee;
+  --amber:#a8600f;
+  --amber-soft:#f8eddc;
+  --shadow:0 1px 2px rgba(19,28,46,.05);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0f141d;
+    --surface:#161d29;
+    --surface-2:#1c2531;
+    --ink:#e9e7e1;
+    --ink-2:#a8b0bd;
+    --ink-3:#7b8492;
+    --rule:#2a3341;
+    --rule-2:#222b38;
+    --teal:#4fb3ab;
+    --teal-soft:#132a2a;
+    --amber:#dda056;
+    --amber-soft:#2a2114;
+    --shadow:0 1px 2px rgba(0,0,0,.3);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0f141d;
+  --surface:#161d29;
+  --surface-2:#1c2531;
+  --ink:#e9e7e1;
+  --ink-2:#a8b0bd;
+  --ink-3:#7b8492;
+  --rule:#2a3341;
+  --rule-2:#222b38;
+  --teal:#4fb3ab;
+  --teal-soft:#132a2a;
+  --amber:#dda056;
+  --amber-soft:#2a2114;
+  --shadow:0 1px 2px rgba(0,0,0,.3);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground);
+  color:var(--ink);
+  font-family:Archivo,"Segoe UI",system-ui,sans-serif;
+  font-size:15.5px;
+  line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px 96px}
+
+/* ---------- masthead ---------- */
+.mast{padding:56px 0 34px;border-bottom:1px solid var(--rule)}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--teal);margin:0 0 20px;
+}
+h1{
+  font-family:Spectral,Georgia,serif;
+  font-weight:400;font-size:clamp(34px,5vw,52px);line-height:1.08;
+  letter-spacing:-.015em;margin:0 0 18px;text-wrap:balance;max-width:19ch;
+}
+h1 em{font-style:italic;color:var(--teal)}
+.standfirst{font-size:17px;line-height:1.6;color:var(--ink-2);max-width:62ch;margin:0}
+
+.meta{
+  display:flex;flex-wrap:wrap;gap:8px 30px;margin-top:30px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11.5px;
+  color:var(--ink-3);
+}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* ---------- summary strip ---------- */
+.strip{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));
+  gap:1px;background:var(--rule-2);border:1px solid var(--rule-2);
+  margin:34px 0 0;
+}
+.strip div{background:var(--ground);padding:18px 20px}
+.strip .n{
+  font-family:Spectral,Georgia,serif;font-size:30px;line-height:1;
+  font-variant-numeric:tabular-nums;display:block;margin-bottom:7px;
+}
+.strip .n.warn{color:var(--amber)}
+.strip .n.ok{color:var(--teal)}
+.strip span.l{font-size:12.5px;color:var(--ink-3);line-height:1.4;display:block}
+
+/* ---------- sections ---------- */
+section{padding-top:52px}
+.sec-head{display:flex;gap:18px;align-items:baseline;margin-bottom:6px}
+.sec-num{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;
+  color:var(--ink-3);padding-top:6px;flex:none;width:26px;
+  font-variant-numeric:tabular-nums;
+}
+h2{
+  font-family:Spectral,Georgia,serif;font-weight:400;
+  font-size:clamp(23px,2.9vw,30px);line-height:1.2;letter-spacing:-.01em;
+  margin:0;text-wrap:balance;
+}
+.sec-body{margin-left:44px}
+@media(max-width:640px){.sec-body{margin-left:0}.sec-head{gap:12px}}
+.dek{color:var(--ink-2);margin:10px 0 22px;max-width:66ch;font-size:14.5px}
+h3{
+  font-family:Archivo,sans-serif;font-size:12px;font-weight:600;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  margin:34px 0 12px;
+}
+p{margin:0 0 14px;max-width:68ch}
+a{color:var(--teal);text-decoration-thickness:1px;text-underline-offset:2px}
+a:focus-visible{outline:2px solid var(--teal);outline-offset:2px;border-radius:2px}
+
+/* ---------- the two voices ---------- */
+.copy{
+  background:var(--surface);border:1px solid var(--rule-2);
+  border-left:2px solid var(--teal);
+  padding:20px 24px;margin:0 0 14px;box-shadow:var(--shadow);
+}
+.copy > :last-child{margin-bottom:0}
+.copy .tag{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--teal);
+  display:block;margin-bottom:11px;
+}
+.copy .h1txt{
+  font-family:Spectral,Georgia,serif;font-size:27px;line-height:1.16;
+  letter-spacing:-.01em;margin:0 0 10px;max-width:24ch;
+}
+.copy .h2txt{
+  font-family:Spectral,Georgia,serif;font-size:21px;line-height:1.25;
+  margin:0 0 10px;max-width:30ch;
+}
+.copy .sub{font-family:Spectral,Georgia,serif;font-style:italic;font-size:18px;color:var(--teal);margin:0 0 12px}
+.copy .kick{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px;
+}
+
+.fix{
+  background:var(--amber-soft);border-left:2px solid var(--amber);
+  padding:14px 20px;margin:0 0 14px;font-size:14px;color:var(--ink-2);
+}
+.fix > :last-child{margin-bottom:0}
+.fix b{color:var(--amber);font-weight:600}
+
+.note{
+  font-size:13.5px;color:var(--ink-3);font-style:italic;
+  max-width:64ch;margin:0 0 14px;padding-left:14px;
+  border-left:1px solid var(--rule);
+}
+.note b{font-style:normal;font-weight:600;color:var(--ink-2)}
+
+.todo{
+  display:inline-block;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px;letter-spacing:.05em;color:var(--amber);
+  border:1px dashed var(--amber);padding:1px 7px;border-radius:2px;
+  white-space:nowrap;
+}
+
+/* ---------- CTA chips ---------- */
+.ctas{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 0}
+.cta{
+  font-size:13px;font-weight:500;padding:8px 15px;border-radius:2px;
+  background:var(--teal);color:var(--ground);
+}
+.cta.ghost{background:transparent;color:var(--teal);border:1px solid var(--teal)}
+.cta .arrow{opacity:.6;margin-left:5px}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;margin:0 0 16px;border:1px solid var(--rule-2)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:520px;background:var(--surface)}
+th,td{text-align:left;padding:11px 16px;border-bottom:1px solid var(--rule-2);vertical-align:top}
+thead th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:400;background:var(--surface-2);
+}
+tbody tr:last-child td{border-bottom:none}
+td.k{font-weight:500;color:var(--ink);width:26%}
+td .mono,.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px}
+.count{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;color:var(--teal);white-space:nowrap}
+.vs th:nth-child(2){color:var(--ink-3)}
+.vs th:nth-child(3){color:var(--teal)}
+.vs td:nth-child(3){color:var(--ink);font-weight:500}
+
+/* ---------- steps ---------- */
+.steps{display:flex;flex-direction:column;gap:1px;background:var(--rule-2);border:1px solid var(--rule-2)}
+.step{background:var(--surface);padding:18px 22px;display:grid;grid-template-columns:52px 1fr;gap:6px 18px}
+.step .sn{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:11px;
+  color:var(--teal);padding-top:5px;letter-spacing:.06em;
+}
+.step .st{font-family:Spectral,Georgia,serif;font-size:19px;margin:0 0 8px}
+.step dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:13.5px}
+.step dt{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);padding-top:4px;
+}
+.step dd{margin:0;color:var(--ink-2)}
+@media(max-width:640px){
+  .step{grid-template-columns:1fr}
+  .step dl{grid-template-columns:1fr;gap:2px 0}
+  .step dd{margin-bottom:8px}
+}
+
+/* ---------- pillars ---------- */
+.pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(184px,1fr));gap:1px;background:var(--rule-2);border:1px solid var(--rule-2)}
+.pillars div{background:var(--surface);padding:15px 18px}
+.pillars .p{font-weight:600;font-size:13.5px;margin:0 0 3px}
+.pillars .who{font-size:12.5px;color:var(--ink-3);margin:0}
+
+/* ---------- code ---------- */
+pre{
+  background:var(--surface-2);border:1px solid var(--rule-2);
+  padding:18px 20px;overflow-x:auto;margin:0 0 16px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12px;line-height:1.6;
+  color:var(--ink-2);
+}
+code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.9em;color:var(--ink-2)}
+.copy code,td code{background:var(--surface-2);padding:1px 5px;border-radius:2px}
+
+ul{margin:0 0 14px;padding-left:20px;max-width:68ch}
+li{margin-bottom:6px}
+li::marker{color:var(--ink-3)}
+
+.pri{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.pri.c{color:var(--amber);font-weight:500}
+.pri.h{color:var(--teal)}
+.pri.m{color:var(--ink-3)}
+
+footer{margin-top:64px;padding-top:22px;border-top:1px solid var(--rule);font-size:12.5px;color:var(--ink-3)}
+footer p{max-width:70ch}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <p class="eyebrow">unseulsouffle.fr · réécriture de la page d'accueil</p>
+  <h1>La home, reprise <em>ligne à ligne</em></h1>
+  <p class="standfirst">Le texte intégral de la nouvelle page d'accueil, prêt à intégrer — rédigé à partir de l'audit du 31 août et du référentiel SEO Clickzou adapté au conseil B2B. Ce qui est encadré en vert se copie tel quel dans le site. Ce qui est en ambre est une correction à porter, ou une donnée qui manque encore.</p>
+  <div class="meta">
+    <span><b>Version</b> 1.0</span>
+    <span><b>Date</b> 3 septembre 2026</span>
+    <span><b>Référentiel</b> SEO Master Un Seul Souffle v1.0</span>
+    <span><b>Cible</b> ≈ 1 900 mots</span>
+  </div>
+</header>
+
+<div class="strip">
+  <div><span class="n">16</span><span class="l">corrections portées par cette page</span></div>
+  <div><span class="n warn">5</span><span class="l">erreurs visibles en ligne aujourd'hui</span></div>
+  <div><span class="n ok">2</span><span class="l">blocs nouveaux pensés pour les moteurs IA</span></div>
+  <div><span class="n">3</span><span class="l">liens qui débloquent les pages orphelines</span></div>
+  <div><span class="n warn">8</span><span class="l">données à obtenir du client</span></div>
+</div>
+
+<!-- 00 -->
+<section>
+  <div class="sec-head"><span class="sec-num">00</span><h2>Métadonnées</h2></div>
+  <div class="sec-body">
+  <p class="dek">L'ancien <span class="mono">title</span> était correct mais laissait dix caractères inutilisés et aucun ancrage local. Toulouse les occupe : c'est le seul territoire où le cabinet peut se classer à court terme.</p>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Champ</th><th>Valeur</th><th>Longueur</th></tr></thead>
+    <tbody>
+      <tr><td class="k">title</td><td class="mono">Accompagnement dirigeant PME ETI Toulouse | Un Seul Souffle</td><td class="count">59 / 60</td></tr>
+      <tr><td class="k">description</td><td class="mono">Équipe de direction externalisée pour dirigeants de PME et ETI à Toulouse : finance, organisation, stratégie, production, QVT. Diagnostic gratuit.</td><td class="count">146 / 150</td></tr>
+      <tr><td class="k">canonical</td><td class="mono">https://www.unseulsouffle.fr/</td><td class="count">auto-réf.</td></tr>
+      <tr><td class="k">robots</td><td class="mono">index, follow, max-image-preview:large</td><td></td></tr>
+      <tr><td class="k">og:image</td><td>Photo réelle de l'équipe, 1200 × 630, WebP <span class="todo">à produire</span></td><td></td></tr>
+    </tbody>
+  </table></div>
+  </div>
+</section>
+
+<!-- 01 -->
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>Hero</h2></div>
+  <div class="sec-body">
+  <p class="dek">Le H1 actuel — « Structurer aujourd'hui, renforcer demain » — ne porte aucun mot-clé. Il est beau et il ne travaille pas. Le nouveau H1 porte l'identité et la requête ; la baseline descend d'un cran et reste, intacte.</p>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="kick">Toulouse &amp; Occitanie — PME · ETI de 10 à 250 salariés</p>
+    <p class="h1txt">Une équipe de direction externalisée pour les dirigeants de PME et ETI</p>
+    <p class="sub">Structurer aujourd'hui, renforcer demain.</p>
+    <p>Vous ne manquez pas d'experts autour de vous. Vous manquez d'une lecture d'ensemble. Un Seul Souffle accompagne les dirigeants de PME et d'ETI à Toulouse et en Occitanie en mobilisant cinq expertises de direction — finance, organisation, stratégie commerciale, production, qualité de vie au travail — autour de la même table, sur la même entreprise, jusqu'à la mise en œuvre sur le terrain.</p>
+    <div class="ctas">
+      <span class="cta">Diagnostiquer mon entreprise en 5 min<span class="arrow">→</span></span>
+      <span class="cta ghost">Voir la méthode en 5 étapes</span>
+    </div>
+  </div>
+
+  <div class="fix">
+    <p><b>Bloquant.</b> Le bouton « Diagnostic gratuit » du menu renvoie une 404 sur toutes les pages du site. Les deux autres boutons de diagnostic pointent correctement vers ScoreApp — il suffit de reprendre leur URL, ou de créer <code>/diagnostic/</code>.</p>
+  </div>
+
+  <h3>Bandeau des cinq piliers</h3>
+  <p class="note">Le bandeau fonctionne bien et reste. Un seul changement : les « Consultant expert » anonymes deviennent des noms. Une équipe qu'on peut nommer est une équipe qui existe — pour le lecteur comme pour Google.</p>
+  <div class="pillars">
+    <div><p class="p">Finance &amp; pilotage</p><p class="who">Marjorie Anglade</p></div>
+    <div><p class="p">Organisation &amp; coopération</p><p class="who">Muriel Saffroy</p></div>
+    <div><p class="p">Stratégie commerciale</p><p class="who">Nicolas Vimini</p></div>
+    <div><p class="p">Production &amp; performance</p><p class="who">Yohan Castelar · Patrick Calvet</p></div>
+    <div><p class="p">Équilibre &amp; QVT</p><p class="who">Olivia Artur</p></div>
+  </div>
+  </div>
+</section>
+
+<!-- 02 -->
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>L'essentiel</h2></div>
+  <div class="sec-body">
+  <p class="dek">Bloc nouveau, et le meilleur rapport effort/impact de toute la page. Trois phrases factuelles et autonomes, qu'une IA peut extraire telles quelles pour répondre à « qui accompagne les dirigeants de PME à Toulouse ? ». C'est la règle GEO du référentiel, appliquée à l'endroit le plus visible du site.</p>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt">L'essentiel en trois phrases</p>
+    <p>Un Seul Souffle est un cabinet de conseil basé à Toulouse qui accompagne les dirigeants de PME et d'ETI de 10 à 250 salariés, dans l'industrie, l'agroalimentaire, les services et la distribution.</p>
+    <p>Sa particularité : au lieu d'intervenir sur une seule expertise, le cabinet mobilise simultanément cinq compétences de direction — finance, organisation et coopération, stratégie commerciale, production, qualité de vie au travail — autour du même dirigeant et de la même entreprise.</p>
+    <p>L'accompagnement ne s'arrête pas à un diagnostic : les consultants restent engagés jusqu'à la mise en œuvre, sur un parcours de 3 à 18 mois structuré en cinq étapes — aligner, coopérer, cartographier, structurer, renforcer.</p>
+    <p class="mono" style="color:var(--ink-3);margin-top:14px">Mise à jour : septembre 2026</p>
+  </div>
+  <p class="note">La date affichée n'est pas décorative : la fraîcheur visible est un des critères que les moteurs génératifs utilisent pour choisir ce qu'ils citent.</p>
+  </div>
+</section>
+
+<!-- 03 -->
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Les blocages</h2></div>
+  <div class="sec-body">
+  <div class="fix"><p><b>Correction.</b> Le titre annonce « ces 4 défis ? » et la liste en contient cinq. L'erreur est visible dès le premier scroll.</p></div>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt">Cinq blocages qui reviennent chez presque tous les dirigeants de PME</p>
+    <p>Un blocage financier pèse sur le moral du dirigeant. Une faille d'organisation freine la stratégie. Une tension d'équipe ralentit la production. Ces problèmes ne sont jamais isolés — mais le conseil traditionnel les traite un par un, chacun dans son couloir. C'est précisément pour sortir de ces silos que nous avons créé Un Seul Souffle.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step"><span class="sn">01</span><div>
+      <p class="st">Manque de visibilité financière</p>
+      <p style="margin:0;color:var(--ink-2);font-size:13.5px">Trésorerie pilotée à vue, tableaux de bord absents ou peu fiables, décisions d'investissement prises sans marge de sécurité. Vous savez que l'entreprise gagne de l'argent, sans savoir précisément où ni pourquoi.</p>
+    </div></div>
+    <div class="step"><span class="sn">02</span><div>
+      <p class="st">Stratégie incertaine</p>
+      <p style="margin:0;color:var(--ink-2);font-size:13.5px">Vision floue à trois ans, stratégie commerciale fragile, positionnement peu différenciant, risques non anticipés. L'entreprise avance à l'énergie du dirigeant plutôt qu'à celle d'un cap partagé.</p>
+    </div></div>
+    <div class="step"><span class="sn">03</span><div>
+      <p class="st">Tensions organisationnelles</p>
+      <p style="margin:0;color:var(--ink-2);font-size:13.5px">Rôles mal définis, décisions qui remontent toutes au même endroit, conflits internes qui paralysent des projets entiers. L'organisation consomme plus d'énergie qu'elle n'en produit.</p>
+    </div></div>
+    <div class="step"><span class="sn">04</span><div>
+      <p class="st">Surcharge et perte d'équilibre</p>
+      <p style="margin:0;color:var(--ink-2);font-size:13.5px">Stress, fatigue, charge mentale permanente. Votre clarté de décision baisse, et l'engagement des équipes suit la même courbe. C'est le blocage dont on parle le moins et qui coûte le plus cher.</p>
+    </div></div>
+    <div class="step"><span class="sn">05</span><div>
+      <p class="st">Production sous tension</p>
+      <p style="margin:0;color:var(--ink-2);font-size:13.5px">Flux mal pilotés, terrain perfectible, pertes de productivité, absence d'indicateurs pour structurer et sécuriser la performance industrielle au quotidien.</p>
+    </div></div>
+  </div>
+
+  <div class="ctas"><span class="cta">Évaluer où en est mon entreprise<span class="arrow">→</span></span></div>
+  <p class="note" style="margin-top:14px">Le blocage 01 porte un lien contextuel vers <b>/expert-comptable-daf-externalisee-pme/</b> — première des trois entrées vers les pages aujourd'hui orphelines.</p>
+  </div>
+</section>
+
+<!-- 04 -->
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Le comparatif</h2></div>
+  <div class="sec-body">
+  <p class="dek">Deuxième bloc nouveau. L'argument central de la marque est déjà formulé en clair — mais il est enterré dans la huitième réponse de la FAQ. Sous forme de tableau tranché, il devient le contenu le plus citable de la page : les moteurs génératifs reprennent en priorité les comparatifs structurés.</p>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt">Cabinet de conseil classique ou équipe de direction externalisée ?</p>
+  </div>
+
+  <div class="scroll"><table class="vs">
+    <thead><tr><th></th><th>Cabinet de conseil classique</th><th>Un Seul Souffle</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Livrable</td><td>Un rapport et des recommandations</td><td>Une transformation mise en œuvre</td></tr>
+      <tr><td class="k">Expertise</td><td>Un pilier à la fois</td><td>Cinq expertises mobilisées ensemble</td></tr>
+      <tr><td class="k">Présence</td><td>Ponctuelle, en réunion</td><td>Sur le terrain, aux côtés des équipes</td></tr>
+      <tr><td class="k">Point de sortie</td><td>La remise du rapport</td><td>L'autonomie de l'entreprise</td></tr>
+      <tr><td class="k">Diagnostic</td><td>Sur le périmètre commandé</td><td>Systémique — la cause, pas le symptôme</td></tr>
+      <tr><td class="k">Facturation</td><td>Du temps vendu</td><td>Une progression de maturité</td></tr>
+      <tr><td class="k">Angles morts</td><td>Ce qui sort du périmètre</td><td>Traités par le pilier concerné, en interne</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="copy">
+    <span class="tag">à intégrer — paragraphe de fermeture</span>
+    <p>Un audit financier qui ignore les tensions d'équipe passe à côté de la cause. Un travail sur la coopération qui ignore la trésorerie s'arrête au premier arbitrage budgétaire. Nous fonctionnons comme une cellule stratégique externalisée, pas comme un collectif d'indépendants qui se recommandent entre eux : les expertises se parlent, se coordonnent et arbitrent ensemble.</p>
+  </div>
+  </div>
+</section>
+
+<!-- 05 -->
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>La méthode</h2></div>
+  <div class="sec-body">
+  <div class="fix">
+    <p><b>Correction structurante.</b> La cinquième étape porte aujourd'hui trois noms selon l'endroit du site — Renforcer, Transmettre, Transformer — parfois sur la même page. L'étape 4 est écrite « Sructurer » dans le hero.</p>
+    <p style="margin-top:10px">Nommage retenu : <b>Aligner · Coopérer · Cartographier · Structurer · Renforcer</b>. À appliquer partout : menu, FAQ, pages d'offres, plaquette, LinkedIn.</p>
+  </div>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt">La méthode en cinq étapes</p>
+    <p>Chaque étape prépare la suivante : plus de clarté pour le dirigeant, plus d'engagement pour les équipes, plus d'autonomie pour l'organisation. Nous ne vendons pas du temps, nous vendons une progression de maturité.</p>
+  </div>
+
+  <div class="steps">
+    <div class="step"><span class="sn">01</span><div>
+      <p class="st">Aligner — retrouver de la clarté</p>
+      <dl>
+        <dt>Symptôme</dt><dd>Saturation mentale, décisions prises dans l'urgence, sentiment de tout porter seul.</dd>
+        <dt>Action</dt><dd>Nous remettons de la clarté dans la direction stratégique et réduisons le pilotage réactif.</dd>
+        <dt>Résultat</dt><dd>Priorités clarifiées, recul retrouvé, meilleure qualité de décision — le dirigeant redevient disponible pour la transformation.</dd>
+        <dt>Format</dt><dd>Parcours relationnel en abonnement mensuel, 4 jalons de 3 mois. Coaching individuel et autodiagnostic de qualité de vie au travail.</dd>
+      </dl>
+    </div></div>
+    <div class="step"><span class="sn">02</span><div>
+      <p class="st">Coopérer — renforcer l'intelligence collective</p>
+      <dl>
+        <dt>Symptôme</dt><dd>Difficulté à déléguer, équipes dépendantes, confiance entamée. Le collectif tourne en rond faute de co-responsabilité réelle.</dd>
+        <dt>Action</dt><dd>Nous installons la co-responsabilité et restaurons la qualité de coopération.</dd>
+        <dt>Résultat</dt><dd>Un collectif plus mature, réellement impliqué dans la transformation.</dd>
+        <dt>Format</dt><dd>Cercles d'avancée en groupes de 6 à 8 personnes, sessions collectives de 3 h sur 3 mois.</dd>
+      </dl>
+    </div></div>
+    <div class="step"><span class="sn">03</span><div>
+      <p class="st">Cartographier — comprendre le système</p>
+      <dl>
+        <dt>Symptôme</dt><dd>Impression de subir l'organisation, blocages récurrents, absence de visibilité globale. Personne ne voit vraiment où ça coince.</dd>
+        <dt>Action</dt><dd>Lecture systémique des flux, des rôles et des tensions.</dd>
+        <dt>Résultat</dt><dd>Une stratégie d'action priorisée, fondée sur le fonctionnement réel et non sur l'organigramme.</dd>
+        <dt>Format</dt><dd>Diagnostic 360°, immersion terrain, entretiens, restitution stratégique complète.</dd>
+      </dl>
+    </div></div>
+    <div class="step"><span class="sn">04</span><div>
+      <p class="st">Structurer — accélérer la performance globale</p>
+      <dl>
+        <dt>Symptôme</dt><dd>Croissance freinée, tensions multiples, défaut de coordination entre stratégie, finance, organisation et humain.</dd>
+        <dt>Action</dt><dd>Activation coordonnée des cinq expertises sur les chantiers prioritaires.</dd>
+        <dt>Résultat</dt><dd>Une entreprise qui se structure durablement et réduit sa dépendance au dirigeant.</dd>
+        <dt>Format</dt><dd>Accompagnement global multi-expertises, 6 à 12 mois.</dd>
+      </dl>
+    </div></div>
+    <div class="step"><span class="sn">05</span><div>
+      <p class="st">Renforcer — pérenniser la performance</p>
+      <dl>
+        <dt>Symptôme</dt><dd>Le dirigeant reste le centre de tout. L'organisation doit gagner en autonomie et créer ses propres relais.</dd>
+        <dt>Action</dt><dd>Redistribution des responsabilités, clarification de la gouvernance, pilotage collectif.</dd>
+        <dt>Résultat</dt><dd>Une entreprise autonome et scalable, capable de continuer sans nous.</dd>
+        <dt>Format</dt><dd>Accompagnement CODIR, gouvernance, création de relais internes.</dd>
+      </dl>
+    </div></div>
+  </div>
+  </div>
+</section>
+
+<!-- 06 -->
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>Les deux parcours</h2></div>
+  <div class="sec-body">
+  <p class="dek">Ces deux blocs portent les seuls liens à ancre exacte vers les pages piliers. C'est le correctif de maillage le plus important de la page : les deux pages d'offres détaillées ne reçoivent aujourd'hui aucun lien interne — ni Google ni vos visiteurs ne les trouvent.</p>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt">Deux parcours, selon l'endroit où ça bloque</p>
+    <p>La plupart des dirigeants savent que quelque chose coince, sans savoir si le nœud est chez eux ou dans l'organisation. Le diagnostic découverte sert exactement à trancher cette question — et l'un des deux parcours en découle.</p>
+  </div>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Parcours</th><th>Quand</th><th>Lien à ancre exacte</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Transformation du dirigeant<br><span class="mono" style="color:var(--ink-3)">étapes 1 &amp; 2</span></td><td>Quand la contrainte principale est la charge, l'isolement ou la qualité des décisions.</td><td class="mono">Découvrir l'accompagnement du dirigeant<br>→ /transformation-dirigeant/</td></tr>
+      <tr><td class="k">Transformation de l'entreprise<br><span class="mono" style="color:var(--ink-3)">étapes 3, 4 &amp; 5</span></td><td>Quand la contrainte principale est l'organisation, la coordination ou la performance.</td><td class="mono">Découvrir la transformation de l'entreprise<br>→ /transformation-entreprise/</td></tr>
+      <tr><td class="k">Pilotage financier<br><span class="mono" style="color:var(--ink-3)">lien contextuel</span></td><td>Quand le blocage est d'abord financier, avant tout autre chantier.</td><td class="mono">pilotage financier externalisé<br>→ /expert-comptable-daf-externalisee-pme/</td></tr>
+    </tbody>
+  </table></div>
+  </div>
+</section>
+
+<!-- 07 -->
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>L'équipe</h2></div>
+  <div class="sec-body">
+  <p class="dek">Les textes existants sont bons et restent tels quels. Trois ajouts, tous au service de la crédibilité que Google et les IA savent lire.</p>
+  <ul>
+    <li><b>Un lien LinkedIn</b> sur chaque personne — il alimente le <span class="mono">sameAs</span> des données structurées et rattache le cabinet à des profils réels.</li>
+    <li><b>Les années d'expérience</b> affichées pour chacun : un signal d'autorité mesurable, pas une affirmation. <span class="todo">à fournir</span></li>
+    <li><b>Un alt d'image</b> au format <span class="mono">Prénom Nom, expertise chez Un Seul Souffle à Toulouse</span>.</li>
+  </ul>
+
+  <div class="copy">
+    <span class="tag">à intégrer — chapô</span>
+    <p class="h2txt">Qui vous accompagne</p>
+    <p>Deux associées fondatrices et quatre consultants partenaires, sélectionnés pour leur complémentarité et non pour remplir une grille de compétences. Chacun intervient sur son pilier, tous travaillent sur le même dossier.</p>
+  </div>
+  </div>
+</section>
+
+<!-- 08 -->
+<section>
+  <div class="sec-head"><span class="sec-num">08</span><h2>La preuve</h2></div>
+  <div class="sec-body">
+  <p class="dek">C'est le manque le plus lourd du site, tous chapitres confondus. Aucun témoignage, aucun logo, aucun cas concret, aucun résultat chiffré. Pour du conseil vendu à des dirigeants, c'est le levier de conversion qui manque avant tous les autres — avant le SEO, avant le design.</p>
+
+  <p class="note">Ces blocs ne sont pas pré-remplis, et c'est délibéré : un faux témoignage se retourne immédiatement contre un cabinet dont l'argument est la confiance. Voici le gabarit à faire remplir par Muriel et Marjorie.</p>
+
+  <div class="copy">
+    <span class="tag">à intégrer — titre</span>
+    <p class="h2txt">Ce que ça change, concrètement</p>
+  </div>
+
+  <div class="scroll"><table>
+    <thead><tr><th>Bloc</th><th>Format minimal exploitable</th><th>Statut</th></tr></thead>
+    <tbody>
+      <tr><td class="k">3 témoignages</td><td>Un verbatim de 2 à 3 phrases — la situation de départ, puis ce qui a changé. Signé prénom, fonction, secteur, effectif, département. Le nom de l'entreprise n'est pas indispensable.</td><td><span class="todo">à fournir</span></td></tr>
+      <tr><td class="k">2 cas concrets</td><td>Situation de départ (secteur, effectif, blocage en une phrase) → intervention (étapes, piliers, durée) → résultat mesuré, un ou deux chiffres réels.</td><td><span class="todo">à fournir</span></td></tr>
+      <tr><td class="k">Chiffres du cabinet</td><td>Nombre d'accompagnements menés, années cumulées d'expérience en direction d'entreprise, secteurs couverts. Vérifiables, jamais arrondis à la hausse.</td><td><span class="todo">à fournir</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <p class="note">Si aucun client n'accepte d'être cité aujourd'hui : publier au minimum un cas anonymisé — « une PME agroalimentaire de 45 salariés en Haute-Garonne » — et le nombre d'accompagnements réalisés. <b>Zéro preuve est la seule situation pire qu'une preuve modeste.</b></p>
+  </div>
+</section>
+
+<!-- 09 -->
+<section>
+  <div class="sec-head"><span class="sec-num">09</span><h2>Pour qui</h2></div>
+  <div class="sec-body">
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt">Pour quelles entreprises nous intervenons</p>
+    <p>Nous accompagnons des PME et ETI de 10 à 250 salariés, principalement en Haute-Garonne et en Occitanie, dans l'industrie, l'agroalimentaire, les services et la distribution.</p>
+    <p>Notre approche est particulièrement adaptée à trois moments : structurer une croissance qui va plus vite que l'organisation, traverser une transformation qui touche plusieurs dimensions à la fois, préparer une transmission d'entreprise.</p>
+    <p>Elle l'est moins pour une mission d'expertise ponctuelle sur un seul sujet. Dans ce cas, un spécialiste unique vous coûtera moins cher et ira plus vite — nous le disons quand c'est le cas.</p>
+  </div>
+  <p class="note">Le dernier paragraphe est délibéré. Dire ce pour quoi on n'est pas fait est le signal de confiance le plus efficace sur un marché où tout le monde promet tout — et il qualifie les demandes en amont, ce qui fait gagner du temps commercial.</p>
+  </div>
+</section>
+
+<!-- 10 -->
+<section>
+  <div class="sec-head"><span class="sec-num">10</span><h2>FAQ</h2></div>
+  <div class="sec-body">
+  <p class="dek">Les huit questions actuelles sont bonnes et traitent de vraies objections. Elles ne sont simplement pas balisées — une éligibilité aux résultats enrichis et une matière première pour les IA, perdues pour rien.</p>
+
+  <div class="fix">
+    <p><b>Trois corrections.</b> « la méthode : Aligner, Coopérer, Cartographier, Structurer et <i>Transmettre</i> » → <b>Renforcer</b>. « deux faces d'un même <i>déf</i> » → <b>défi</b>. Et baliser l'ensemble en <span class="mono">FAQPage</span>.</p>
+  </div>
+
+  <h3>Deux questions à ajouter</h3>
+  <p class="note">Ce sont les deux objections réelles que la FAQ actuelle esquive.</p>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt" style="font-size:18px">Combien coûte un accompagnement Un Seul Souffle ?</p>
+    <p><span class="todo">à fournir — au minimum une fourchette ou un point d'entrée</span></p>
+    <p style="font-size:13.5px;color:var(--ink-3);margin-bottom:0">Le silence sur le prix ne protège pas : il fait fuir les dirigeants sérieux et fait perdre du temps avec les autres. Une fourchette large et un premier palier suffisent.</p>
+  </div>
+
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt" style="font-size:18px">Comment se passe le premier échange ?</p>
+    <p>Un entretien de découverte gratuit et confidentiel avec Marjorie et Muriel, d'environ <span class="todo">X</span> minutes, en visio ou dans vos locaux. Nous y identifions vos enjeux prioritaires et vous repartez avec une lecture de votre situation — que vous travailliez ensuite avec nous ou non.</p>
+  </div>
+  </div>
+</section>
+
+<!-- 11 -->
+<section>
+  <div class="sec-head"><span class="sec-num">11</span><h2>Clôture et coordonnées</h2></div>
+  <div class="sec-body">
+  <div class="copy">
+    <span class="tag">à intégrer</span>
+    <p class="h2txt">Commencer par savoir où vous en êtes</p>
+    <p>Le diagnostic prend 5 minutes et vous donne un résultat immédiat sur les cinq piliers. Il ne vous engage à rien et sert de base à l'entretien découverte, gratuit et confidentiel.</p>
+    <div class="ctas">
+      <span class="cta">Diagnostiquer mon entreprise<span class="arrow">→</span></span>
+      <span class="cta ghost">Parler à Marjorie et Muriel</span>
+    </div>
+  </div>
+
+  <h3>Bloc coordonnées — à ajouter au pied de toutes les pages</h3>
+<pre>Un Seul Souffle
+[Adresse complète]
+[Code postal] Toulouse
+[Téléphone]
+contact@unseulsouffle.fr</pre>
+
+  <div class="fix">
+    <p><b>Une donnée manquante, trois problèmes.</b> Sans adresse ni téléphone publiés et cohérents, aucune fiche Google Business Profile n'est exploitable, aucun référencement local n'est possible, et l'entreprise reste une entité faible pour les moteurs IA. C'est exactement la même donnée qui manque aux mentions légales, où elle est une obligation légale. Une seule collecte règle les trois.</p>
+  </div>
+  </div>
+</section>
+
+<!-- 12 -->
+<section>
+  <div class="sec-head"><span class="sec-num">12</span><h2>Données structurées</h2></div>
+  <div class="sec-body">
+  <p class="dek">Quatre entités à injecter dans un <span class="mono">@graph</span> unique : l'organisation, le service, la FAQ et le site. Extrait des deux premières ; le fichier <span class="mono">HOME-SEO.md</span> porte le JSON-LD complet, FAQ comprise.</p>
+<pre>{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.unseulsouffle.fr/#organization",
+      "name": "Un Seul Souffle",
+      "url": "https://www.unseulsouffle.fr/",
+      "email": "contact@unseulsouffle.fr",
+      "slogan": "Structurer aujourd'hui, renforcer demain",
+      "description": "Équipe de direction externalisée qui accompagne les dirigeants
+                      de PME et d'ETI en mobilisant simultanément cinq expertises.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "[À COMPLÉTER]",
+        "postalCode": "[À COMPLÉTER]",
+        "addressLocality": "Toulouse",
+        "addressRegion": "Occitanie",
+        "addressCountry": "FR"
+      },
+      "areaServed": ["Toulouse", "Haute-Garonne", "Occitanie"],
+      "sameAs": [
+        "https://fr.linkedin.com/in/muriel-saffroy",
+        "[LinkedIn Marjorie Anglade]",
+        "[LinkedIn page entreprise]",
+        "[chaîne YouTube]",
+        "[podcast]"
+      ],
+      "founder": [
+        { "@type": "Person", "name": "Muriel Saffroy" },
+        { "@type": "Person", "name": "Marjorie Anglade" }
+      ]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://www.unseulsouffle.fr/#service",
+      "name": "Accompagnement de dirigeants de PME et ETI",
+      "provider": { "@id": "https://www.unseulsouffle.fr/#organization" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "PME et ETI de 10 à 250 salariés"
+      }
+    }
+  ]
+}</pre>
+  </div>
+</section>
+
+<!-- 13 -->
+<section>
+  <div class="sec-head"><span class="sec-num">13</span><h2>Ce que cette page corrige</h2></div>
+  <div class="sec-body">
+  <div class="scroll"><table>
+    <thead><tr><th style="width:34px"></th><th>Correction</th><th>Origine</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">01</td><td>H1 sans aucun mot-clé → H1 portant l'identité et la requête</td><td>Densité SEO</td></tr>
+      <tr><td class="mono">02</td><td>title sans ancrage local → Toulouse ajouté, 59/60 caractères</td><td>Densité SEO</td></tr>
+      <tr><td class="mono">03</td><td>« ces 4 défis ? » suivi de cinq défis</td><td>Audit</td></tr>
+      <tr><td class="mono">04</td><td>« Sructurer » dans le hero</td><td>Audit</td></tr>
+      <tr><td class="mono">05</td><td>Cinquième étape sous trois noms → Renforcer partout</td><td>Audit</td></tr>
+      <tr><td class="mono">06</td><td>« deux faces d'un même déf » → défi</td><td>Audit</td></tr>
+      <tr><td class="mono">07</td><td>Pages d'offres orphelines → trois liens à ancre exacte</td><td>Maillage</td></tr>
+      <tr><td class="mono">08</td><td>CTA « Diagnostic gratuit » en 404 sur toutes les pages</td><td>Audit</td></tr>
+      <tr><td class="mono">09</td><td>CTA génériques → CTA orientés action</td><td>Conversion</td></tr>
+      <tr><td class="mono">10</td><td>FAQ non balisée → FAQPage en données structurées</td><td>GEO</td></tr>
+      <tr><td class="mono">11</td><td>Aucune réponse directe extractible → bloc « L'essentiel »</td><td>GEO</td></tr>
+      <tr><td class="mono">12</td><td>Aucun comparatif citable → tableau classique vs externalisée</td><td>GEO</td></tr>
+      <tr><td class="mono">13</td><td>« Consultant expert » anonymes → noms réels</td><td>E-E-A-T</td></tr>
+      <tr><td class="mono">14</td><td>Aucune preuve client → section dédiée et gabarit</td><td>Conversion</td></tr>
+      <tr><td class="mono">15</td><td>Aucune coordonnée publiée → bloc NAP et Organization</td><td>SEO local</td></tr>
+      <tr><td class="mono">16</td><td>Aucune date de fraîcheur → mise à jour affichée</td><td>GEO</td></tr>
+    </tbody>
+  </table></div>
+  </div>
+</section>
+
+<!-- 14 -->
+<section>
+  <div class="sec-head"><span class="sec-num">14</span><h2>À obtenir du client</h2></div>
+  <div class="sec-body">
+  <p class="dek">Huit données manquantes. Les trois premières bloquent la mise en ligne autant que la conformité légale.</p>
+  <div class="scroll"><table>
+    <thead><tr><th>Donnée</th><th>Ce qu'elle débloque</th><th>Priorité</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Adresse complète et téléphone</td><td>Coordonnées publiées, mentions légales, fiche Google, données structurées, référencement local</td><td><span class="pri c">Critique</span></td></tr>
+      <tr><td class="k">Forme juridique, capital, SIRET, TVA</td><td>Mentions légales — obligation LCEN non remplie à ce jour</td><td><span class="pri c">Critique</span></td></tr>
+      <tr><td class="k">URL réelle du diagnostic ScoreApp</td><td>Le CTA principal du menu, en 404 sur tout le site</td><td><span class="pri c">Critique</span></td></tr>
+      <tr><td class="k">3 témoignages, 2 cas, chiffres du cabinet</td><td>Section preuve — le levier de conversion manquant</td><td><span class="pri h">Haute</span></td></tr>
+      <tr><td class="k">Fourchette de prix ou premier palier</td><td>FAQ, qualification des demandes en amont</td><td><span class="pri h">Haute</span></td></tr>
+      <tr><td class="k">LinkedIn (page + Marjorie), YouTube, podcast</td><td>sameAs — entité forte pour les moteurs IA</td><td><span class="pri m">Moyenne</span></td></tr>
+      <tr><td class="k">Années d'expérience par intervenant</td><td>Signal d'autorité sur la section équipe</td><td><span class="pri m">Moyenne</span></td></tr>
+      <tr><td class="k">Photo d'équipe 1200 × 630</td><td>Aperçu au partage sur LinkedIn et en messagerie</td><td><span class="pri m">Moyenne</span></td></tr>
+    </tbody>
+  </table></div>
+  </div>
+</section>
+
+<footer>
+  <p>Document de travail Clickzou — réécriture de la page d'accueil unseulsouffle.fr, version 1.0 du 3 septembre 2026. Établi à partir de l'audit du 31 août 2026 et du référentiel <span class="mono">SEO Master Un Seul Souffle v1.0</span>, lui-même adapté du référentiel SEO Clickzou. Le texte à intégrer et le JSON-LD complet figurent dans <span class="mono">HOME-SEO.md</span>.</p>
+</footer>
+
+</div>

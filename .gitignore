@@ -1,0 +1,35 @@
+# dépendances
+/node_modules
+/.pnp
+.pnp.*
+
+# build Next.js
+/.next/
+/out/
+/build
+next-env.d.ts
+
+# secrets — FAL_KEY et consorts ne doivent jamais partir sur le dépôt
+.env
+.env*.local
+.env.production
+
+# tests / couverture
+/coverage
+
+# déploiement
+.vercel
+
+# système
+.DS_Store
+Thumbs.db
+*.pem
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# typescript
+*.tsbuildinfo

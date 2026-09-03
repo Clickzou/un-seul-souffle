@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  /* Titres : Newsreader léger, interlettrage resserré. */
+  h1,
+  h2,
+  h3 {
+    @apply font-serif font-light text-ink;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+
+  /* Focus visible sur tout élément interactif — accessibilité. */
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    @apply outline-2 outline-offset-4 outline-teal rounded-sm;
+    outline-style: solid;
+  }
+
+  /* Le marqueur natif du <details> est remplacé par le +/− du composant FAQ. */
+  summary {
+    list-style: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
